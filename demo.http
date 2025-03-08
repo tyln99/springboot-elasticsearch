@@ -1,0 +1,100 @@
+POST http://localhost:8080/products
+Content-Type: application/json
+
+{
+  "id": "1",
+  "name": "Laptop",
+  "description": "Gaming laptop",
+  "price": 1200.00
+}
+
+###
+POST http://localhost:8080/products/bulk
+Content-Type: application/json
+
+[
+  {
+    "id": 1,
+    "name": "UltraBook Pro 14",
+    "description": "Thin and light 14-inch laptop with a powerful Intel Core i7 processor, 16GB RAM, and a 512GB SSD. Ideal for professionals on the go.",
+    "price": 1299.99
+  },
+  {
+    "id": 2,
+    "name": "Gaming Beast X17",
+    "description": "High-performance 17-inch gaming laptop with an NVIDIA GeForce RTX 3080 GPU, 32GB RAM, and a 1TB NVMe SSD. Experience immersive gaming.",
+    "price": 2499.00
+  },
+  {
+    "id": 3,
+    "name": "Everyday Laptop 15",
+    "description": "Reliable 15-inch laptop with an AMD Ryzen 5 processor, 8GB RAM, and a 256GB SSD. Perfect for everyday tasks and casual browsing.",
+    "price": 649.50
+  },
+  {
+    "id": 4,
+    "name": "Student Chromebook C11",
+    "description": "Lightweight and affordable 11-inch Chromebook with long battery life. Great for students and basic productivity tasks.",
+    "price": 299.00
+  },
+  {
+    "id": 5,
+    "name": "Creator Pro 16",
+    "description": "16-inch laptop designed for content creators, featuring an Intel Core i9 processor, 32GB RAM, 2TB SSD, and a dedicated NVIDIA Quadro GPU.",
+    "price": 2999.95
+  },
+  {
+    "id": 6,
+    "name": "Budget Traveler 13",
+    "description": "Compact 13-inch laptop with a long battery life and a budget-friendly price. Suitable for travel and light work.",
+    "price": 449.00
+  },
+  {
+    "id": 7,
+    "name": "Workstation W17",
+    "description": "Powerful 17-inch mobile workstation with an Intel Xeon processor, 64GB ECC RAM, and a 2TB NVMe SSD. For demanding professional applications.",
+    "price": 3799.00
+  },
+  {
+    "id": 8,
+    "name": "Office Essential 15",
+    "description": "15-inch laptop designed for office productivity, featuring an Intel Core i5 processor, 16GB RAM, and a 512GB SSD.",
+    "price": 899.99
+  },
+  {
+    "id": 9,
+    "name": "Light Gaming G15",
+    "description": "15-inch gaming laptop with an NVIDIA GeForce GTX 1650, 16GB RAM, and a 512GB SSD. Good for entry level gaming.",
+    "price": 799.00
+  },
+  {
+    "id": 10,
+    "name": "Portable Powerhouse 13",
+    "description": "13-inch laptop with a high-resolution display, powerful AMD Ryzen 7 processor, 16GB RAM, and a 1TB SSD. Great for on the go productivity and entertainment.",
+    "price": 1499.00
+  }
+]
+
+
+###
+GET http://localhost:8080/products
+
+###
+@name = 13
+GET http://localhost:8080/products/find-by-name?name={{name}}
+
+###
+@desc = NVIDIA RTX 3080 32GB RAM
+GET http://localhost:8080/products/search-by-description?description={{desc}}
+
+###
+@id = 1
+PUT http://localhost:8080/products/{{id}}
+Content-Type: application/json
+
+{
+  "id": "1",
+  "name": "Laptop Lenovo LOQ 15ARP9 83JC007HVN",
+  "description": "Laptop Lenovo LOQ 15ARP9 83JC007HVN sử dụng GPU NVIDIA GeForce RTX™ 3050 6GB kết hợp cùng CPU AMD Ryzen™ 5 7235HS cung cấp sức mạnh vượt trội tạo nên hiệu suất mạnh mẽ. Sự kết hợp này không chỉ giúp người dùng chiến tốt mọi tựa game mà còn đáp ứng được nhu cầu xử lý công việc mỗi ngày.",
+  "price": 1100.00
+}
