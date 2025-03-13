@@ -46,6 +46,14 @@ public class ProductService {
         return productRepository.findByDescription(description);
     }
 
+    public List<Product> findByUserComment(String user) {
+        return productRepository.findByComments_user(user);
+    }
+
+    public List<Product> findByComment(String comment) {
+        return productRepository.findByComments_comment(comment);
+    }
+
     public List<Product> saveAll(List<Product> products) {
         return (List<Product>) productRepository.saveAll(products);
     }

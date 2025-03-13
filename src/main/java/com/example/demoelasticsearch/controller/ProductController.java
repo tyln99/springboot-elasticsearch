@@ -42,6 +42,16 @@ public class ProductController {
         return productService.findByDescription(description);
     }
 
+    @GetMapping("/search-by-comment-user")
+    public List<Product> searchProductsByCommentUser(@RequestParam String user) {
+        return productService.findByUserComment(user);
+    }
+
+    @GetMapping("/search-by-comment")
+    public List<Product> searchByComment(@RequestParam String comment) {
+        return productService.findByComment(comment);
+    }
+
     @PutMapping("/{id}")
     public void updateProduct(@PathVariable String id, @RequestBody Product product) {
         productService.update(id, product);
